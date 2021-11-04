@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+  apptest:
+    build:
+      context: .
+      dockerfile: apptest/Dockerfile
+    ports:
+      - ":80"
+      - ":443"
+    networks:
+      - mynetwork
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+  commandservice:
+    build:
+      context: .
+      dockerfile: commandservice/Dockerfile
+    ports:
+      - ":80"
+      - ":443"
+    networks:
+      - mynetwork
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production 
+  db:
+     image: "mcr.microsoft.com/mssql/server"
+     environment:
+            SA_PASSWORD: "Pa55w0rd2019"
+            ACCEPT_EULA: "Y" 
+     ports:
+        - 1433:1433
+     networks:
+      - mynetwork
+  platformservice:
+    build:
+      context: .
+      dockerfile: platformservice/Dockerfile
+    ports:
+      - ":80"
+      - ":443"
+    networks:
+      - mynetwork
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production 
+networks:
+  mynetwork:
+    driver: bridge

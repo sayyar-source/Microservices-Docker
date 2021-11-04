@@ -1,0 +1,59 @@
+﻿Rebuild started...
+Restored C:\Users\muhammeds\source\repos\CommandsService\CommandsService.csproj (in 45 ms).
+Restored C:\Users\muhammeds\source\repos\Microservices\PlatformService\PlatformService.csproj (in 825 ms).
+1>------ Rebuild All started: Project: PlatformService, Configuration: Debug Any CPU ------
+2>------ Rebuild All started: Project: docker-compose, Configuration: Debug Any CPU ------
+3>------ Rebuild All started: Project: CommandsService, Configuration: Debug Any CPU ------
+2>docker-compose  -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.yml" -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.override.yml" -p dockercompose6123116250235816747 --no-ansi config
+3>CommandsService -> C:\Users\muhammeds\source\repos\CommandsService\bin\Debug\net5.0\CommandsService.dll
+1>PlatformService -> C:\Users\muhammeds\source\repos\Microservices\PlatformService\bin\Debug\net5.0\PlatformService.dll
+2>[31moption '--no-ansi' is DEPRECATED ! Please use '--ansi' instead.
+2>services:
+2>  platformservice:
+2>    build:
+2>      context: .
+2>      dockerfile: PlatformService/Dockerfile
+2>    environment:
+2>      ASPNETCORE_ENVIRONMENT: Development
+2>      ASPNETCORE_URLS: https://+:443;http://+:80
+2>    image: platformservice
+2>    networks:
+2>      default: null
+2>    ports:
+2>    - mode: ingress
+2>      target: 80
+2>      protocol: tcp
+2>    - mode: ingress
+2>      target: 443
+2>      protocol: tcp
+2>    volumes:
+2>    - type: bind
+2>      source: C:\Users\muhammeds\AppData\Roaming/Microsoft/UserSecrets
+2>      target: /root/.microsoft/usersecrets
+2>      read_only: true
+2>      bind:
+2>        create_host_path: true
+2>    - type: bind
+2>      source: C:\Users\muhammeds\AppData\Roaming/ASP.NET/Https
+2>      target: /root/.aspnet/https
+2>      read_only: true
+2>      bind:
+2>        create_host_path: true
+2>networks:
+2>  default:
+2>    name: dockercompose6123116250235816747_default
+2>[0m
+2>docker-compose  -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.yml" -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.override.yml" -f "C:\Users\muhammeds\source\repos\Microservices\obj\Docker\docker-compose.vs.release.partial.g.yml" -p dockercompose6123116250235816747 --no-ansi kill
+2>[31moption '--no-ansi' is DEPRECATED ! Please use '--ansi' instead.
+2>[0m
+2>docker-compose  -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.yml" -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.override.yml" -f "C:\Users\muhammeds\source\repos\Microservices\obj\Docker\docker-compose.vs.release.partial.g.yml" -p dockercompose6123116250235816747 --no-ansi down --rmi local --remove-orphans
+2>[31moption '--no-ansi' is DEPRECATED ! Please use '--ansi' instead.
+2>[0mdockercompose6123116250235816747  Warning: No resource found to remove
+2>docker-compose  -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.yml" -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.override.yml" -f "C:\Users\muhammeds\source\repos\Microservices\obj\Docker\docker-compose.vs.debug.partial.g.yml" -p dockercompose6123116250235816747 --no-ansi kill
+2>[31moption '--no-ansi' is DEPRECATED ! Please use '--ansi' instead.
+2>[0m
+2>docker-compose  -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.yml" -f "C:\Users\muhammeds\source\repos\Microservices\docker-compose.override.yml" -f "C:\Users\muhammeds\source\repos\Microservices\obj\Docker\docker-compose.vs.debug.partial.g.yml" -p dockercompose6123116250235816747 --no-ansi down --rmi local --remove-orphans
+2>[31moption '--no-ansi' is DEPRECATED ! Please use '--ansi' instead.
+2>[0mdockercompose6123116250235816747  Warning: No resource found to remove
+2>docker images --filter dangling=true --format {{.ID}}
+========== Rebuild All: 3 succeeded, 0 failed, 0 skipped ==========
